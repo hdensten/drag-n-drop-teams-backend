@@ -60,5 +60,15 @@ def get_student(id):
     return student_schema.jsonify(student)
 
 
+@app.route('/student/<id>', methods=["PUT"])
+def update_student(id):
+    student = Student.query.get(id)
+    student.name = request.json["name"]
+    student.team = request.json["team"]
+
+    db.session.commit()
+    return student_schema.jsonify(student)
+
+
 if __name__ == '__main__':
     app.run(debug=True)
