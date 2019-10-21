@@ -54,5 +54,11 @@ def get_students():
     return jsonify(result)
 
 
+@app.route('/student/<id>', methods=["GET"])
+def get_student(id):
+    student = Student.query.get(id)
+    return student_schema.jsonify(student)
+
+
 if __name__ == '__main__':
     app.run(debug=True)
