@@ -47,5 +47,12 @@ def add_student():
     return student_schema.jsonify(student)
 
 
+@app.route('/students', methods=["GET"])
+def get_students():
+    all_students = Student.query.all()
+    result = students_schema.dump(all_students)
+    return jsonify(result)
+
+
 if __name__ == '__main__':
     app.run(debug=True)
