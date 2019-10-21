@@ -70,5 +70,14 @@ def update_student(id):
     return student_schema.jsonify(student)
 
 
+@app.route('/student/<id>', methods=["DELETE"])
+def delete_student(id):
+    student = Student.query.get(id)
+    db.session.delete(student)
+    db.session.commit()
+
+    return "RECORD DELETED"
+
+
 if __name__ == '__main__':
     app.run(debug=True)
