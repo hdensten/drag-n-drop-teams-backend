@@ -8,6 +8,10 @@ autopep8 = "*"
 
 [packages]
 flask = "*"
+flask-sqlalchemy = "*"
+flask-marshmallow = "*"
+flask-cors = "*"
+flask-heroku = "*"
 
 [requires]
 python_version = "3.7"
