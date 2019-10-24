@@ -67,7 +67,7 @@ def get_student(id):
 @app.route('/student/<id>', methods=["PUT"])
 def update_student(id):
     student = Student.query.get(id)
-    student.name = request.json["name"]
+    # student.name = request.json["name"]
     student.team = request.json["team"]
 
     db.session.commit()
